@@ -9,7 +9,8 @@ function Hero() {
         <br />
         <div className='flex flex-row gap-5'>
         <Button className='font-bold'>Move your mouse downward</Button>
-        <Button variant={'secondary'}>Repository</Button>
+        <a href="https://github.com/VMASPAD/Island">
+        <Button variant={'secondary'}>Repository</Button></a>
         </div>
         <br />
     </div>
