@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 
 export default function Home() {
-  const [position, setPosition] = useState("top");
-  const [size, setSize] = useState("default"); 
-  const [variant, setVariant] = useState("default");
+  const [position, setPosition] = useState<"top" | "bottom" | "left" | "right">("top");
+  const [size, setSize] = useState<"default" | "sm" | "lg" | null>("default"); 
+  const [variant, setVariant] = useState<"default" | "link" | "destructive" | "outline" | "secondary" | "ghost" | null>("default");
   const [distance, setDistance] = useState(33);
 
   // Initialize state from localStorage
@@ -20,17 +20,21 @@ export default function Home() {
     const storedSize = localStorage.getItem("size");
     const distance = localStorage.getItem("distance");
     
-    if (storedPosition) setPosition(storedPosition);
-    if (storedVariant) setVariant(storedVariant);
-    if (storedSize) setSize(storedSize);
+    if (storedPosition) setPosition(storedPosition as "top" | "bottom" | "left" | "right");
+    if (storedVariant) setVariant(storedVariant as "default" | "link" | "destructive" | "outline" | "secondary" | "ghost" | null);
+    if (storedSize) setSize(storedSize as "default" | "sm" | "lg" | null);
     if (distance) setDistance(parseInt(distance));
   }, []);
 
   // Update localStorage whenever state changes
   useEffect(() => {
     localStorage.setItem("position", position);
-    localStorage.setItem("variant", variant);
-    localStorage.setItem("size", size);
+    if (variant !== null) {
+      localStorage.setItem("variant", variant);
+    }
+    if (size !== null) {
+      localStorage.setItem("size", size);
+    }
     localStorage.setItem("distance", distance.toString());
   }, [position, variant, size, distance]);
 
@@ -41,9 +45,9 @@ export default function Home() {
         <Hero />
         <Install />
         <Usage
-          setPosition={(newPosition) => setPosition(newPosition)}
-          setVariant={(newVariant) => setVariant(newVariant)}
-          setSize={(newSize) => setSize(newSize)}
+          setPosition={(newPosition) => setPosition(newPosition as "top" | "bottom" | "left" | "right")}
+          setVariant={(newVariant) => setVariant(newVariant as "default" | "link" | "destructive" | "outline" | "secondary" | "ghost" | null)}
+          setSize={(newSize) => setSize(newSize as "default" | "sm" | "lg" | null)}
           setDistance={(newDistance) => setDistance(newDistance)} />
         <Island variant={variant} size={size} position={position} distance={distance} className="flex flex-col">
           <Info
