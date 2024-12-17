@@ -13,7 +13,7 @@ interface UsageProps {
 
 function Usage({ setPosition, setVariant, setSize, setDistance }: UsageProps) {
   const [sliderValue, setSliderValue] = useState(33);
-
+  console.log(sliderValue);
   const code = `import { Island } from 'Island'
 
   function App() {

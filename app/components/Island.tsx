@@ -37,8 +37,9 @@ const IslandVariants = cva(
 );
 
 interface IslandProps extends VariantProps<typeof IslandVariants> {
-  distance: number;
+  distance?: number;
   className?: string;
+  position?: "top" | "bottom" | "left" | "right";
   children: React.ReactNode;
 }
 

@@ -23,7 +23,7 @@ export default function Home() {
     if (storedPosition) setPosition(storedPosition);
     if (storedVariant) setVariant(storedVariant);
     if (storedSize) setSize(storedSize);
-    if (distance) setDistance(distance);
+    if (distance) setDistance(parseInt(distance));
   }, []);
 
   // Update localStorage whenever state changes
@@ -31,7 +31,7 @@ export default function Home() {
     localStorage.setItem("position", position);
     localStorage.setItem("variant", variant);
     localStorage.setItem("size", size);
-    localStorage.setItem("distance", distance);
+    localStorage.setItem("distance", distance.toString());
   }, [position, variant, size, distance]);
 
   return (
@@ -45,7 +45,7 @@ export default function Home() {
           setVariant={(newVariant) => setVariant(newVariant)}
           setSize={(newSize) => setSize(newSize)}
           setDistance={(newDistance) => setDistance(newDistance)} />
-        <Island variant={variant} size={size} position={position} distance={parseInt(distance)}>
+        <Island variant={variant} size={size} position={position} distance={distance} className="flex flex-col">
           <Info
             size={40}
             className="hover:w-16 hover:h-16 transition-all duration-700 rounded-full m-1" />
