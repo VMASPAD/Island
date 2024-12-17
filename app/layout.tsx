@@ -16,6 +16,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Island",
   description: "A simple island component for react",
+  authors: ["Tomas Avila"],
+  creators: ["Tomas Avila"],
+  keywords: ["react", "tailwind", "island", "component react"],
 };
 
 export default function RootLayout({
