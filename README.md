@@ -7,7 +7,7 @@ A simple [island ]()component for react
 To start using the library, install it in your project:
 
 ```bash
-npx shadcn@latest add 
+npx shadcn@latest add https://island-wine.vercel.app/Island.json 
 ```
 
 Import and add the component “island” in the root of your project.
