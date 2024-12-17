@@ -49,7 +49,7 @@ export default function Home() {
           setVariant={(newVariant) => setVariant(newVariant as "default" | "link" | "destructive" | "outline" | "secondary" | "ghost" | null)}
           setSize={(newSize) => setSize(newSize as "default" | "sm" | "lg" | null)}
           setDistance={(newDistance) => setDistance(newDistance)} />
-        <Island variant={variant} size={size} position={position} distance={distance} className="flex flex-col">
+        <Island variant={variant} size={size} position={position} distance={distance} className="flex flex-row">
           <Info
             size={40}
             className="hover:w-16 hover:h-16 transition-all duration-700 rounded-full m-1" />
