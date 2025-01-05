@@ -17,7 +17,9 @@ import { Island } from 'Island'
 
   function App() {
     return ( 
-        <Island />
+        <Island>
+        ...
+        </Island>
         // ...
     )
   }`
